@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reflex
+namespace Reflex.Data
 {
     public class Header
     {
@@ -31,7 +31,14 @@ namespace Reflex
         /// Mandatory
         /// Left with space
         /// </summary>
-        public string CorporateID { get; set; }
+        private string corporateId;
+
+        public string CorporateID
+        {
+            get { return corporateId; }
+            set { corporateId = value.Length>6?value.Substring(0,6):value; }
+        }
+
 
         /// <summary>
         /// CAMS Corporate ID provided by RHB
@@ -39,7 +46,14 @@ namespace Reflex
         /// Mandatory
         /// Left with space
         /// </summary>
-        public string CorporateName { get; set; }
+        private string corporateName;
+
+        public string CorporateName
+        {
+            get { return corporateName; }
+            set { corporateName = value.Length > 8 ? value.Substring(0, 8) : value; }
+        }
+
 
         /// <summary>
         /// Account No Only RHB
@@ -104,24 +118,25 @@ namespace Reflex
         {
             RecordType = RecordTypes.MessageHeader;
             EPaymentId = "ePayment";
-            Template = "{0,-2}{1,-8}{2,-6}{3,-40}{4,14}{5}{6,-10}{7:D14}{8,-15}{9,-20}{10,-35}{11,-35}";
+            Template = "{0,-2:D2}{1,-8}{2,-6}{3,-40}{4,14}{5}{6,-10}{7,12}{8,-15}{9,-20}{10,-35}{11,-35}";
         }
 
         public override string ToString()
         {
             //return PaymentDate.ToString();
             return string.Format(Template,
-                RecordType,
+                (int)RecordType,
                 EPaymentId,
                 CorporateID,
                 CorporateName,
                 DebitingAccountNumber,
                 PaymentDate.ToString("ddMMyyyy"),
                 FileBatchNo,
-                TotalDebitingAmount,
+                TotalDebitingAmount*100,
                 BussinessRegNo,
                 MailingAddress1,
-                MailingAddress2
+                MailingAddress2,
+                ContactNo
             );
         }
     }

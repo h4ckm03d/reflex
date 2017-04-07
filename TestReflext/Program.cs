@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Reflex;
+using Reflex.Data;
 
 namespace TestReflext
 {
@@ -18,7 +18,10 @@ namespace TestReflext
                 DebitingAccountNumber="fgdssfdsfds",
                 PaymentDate = DateTime.Now,
                 FileBatchNo=12312312,
-                TotalDebitingAmount=20000
+                TotalDebitingAmount=20000,
+                BussinessRegNo="232323232",
+                MailingAddress1="hahhahaah",
+                MailingAddress2="hihihihihhi"
             };
 
             Console.Write(data.ToString());

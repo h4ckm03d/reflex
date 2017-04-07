@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reflex
+namespace Reflex.Data
 {
    public enum RecordTypes
     {

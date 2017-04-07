@@ -4,17 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reflex
+namespace Reflex.Data
 {
-    public class Data
+    public class Footer
     {
-        #region header
-
-        #endregion
-
-        #region footer
-
-        #endregion
-
     }
 }
