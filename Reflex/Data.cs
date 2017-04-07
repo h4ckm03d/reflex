@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Reflex
 {
-    public class Class1
+    public class Data
     {
+        #region header
+
+        #endregion
+
+        #region footer
+
+        #endregion
+
     }
 }
